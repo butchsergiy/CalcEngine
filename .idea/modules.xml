@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CalcEngine.iml" filepath="$PROJECT_DIR$/.idea/modules/CalcEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/com/buch/buch.iml" filepath="$PROJECT_DIR$/src/com/buch/buch.iml" />
     </modules>
   </component>
 </project>
