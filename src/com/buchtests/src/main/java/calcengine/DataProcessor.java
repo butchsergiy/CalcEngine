@@ -1,5 +1,5 @@
 /**
- * Created by sergiy.buchkovskyy on 10.09.2016.
+ * Created by BSV on 10.09.2016.
  */
 class DataProcessor {
 

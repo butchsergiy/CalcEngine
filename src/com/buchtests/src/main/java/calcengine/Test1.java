@@ -1,7 +1,7 @@
 import org.perf4j.log4j.Log4JStopWatch;
 
 /**
- * Created by sergiy.buchkovskyy on 13.09.2016.
+ * Created by BSV on 13.09.2016.
  */
 public class Test1 {
 
