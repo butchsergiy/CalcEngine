@@ -1,9 +1,6 @@
 import org.apache.log4j.Logger;
 import org.perf4j.log4j.Log4JStopWatch;
 
-import java.util.Arrays;
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -12,51 +9,32 @@ public class Main {
 
         // SWAP two digits
 
-        int [][] dataArray =  new int[10000000][2];
-        int [][] dataArray1 =  new int[100][2];
-        int [][] dataArray2 =  new int[100][2];
+        DataProcessor data1 = new DataProcessor(10000000, 2);
+        DataProcessor data2 = new DataProcessor(10000000, 2);
+        data1.initDataArray();
+        data2.initDataArray();
 
-        dataArray = fillArray(dataArray);
-        dataArray1 = dataArray.clone();
-//        dataArray1 = Arrays.copyOf(dataArray, dataArray.length);
-        dataArray2 = Arrays.copyOf(dataArray, dataArray.length);
-
-        System.out.println(dataArray + "\t" + dataArray[0].toString());
-        System.out.println(dataArray1);
-        System.out.println(dataArray2);
-
-
-
-        Calc1 calc1 = new Calc1();
-        Calc2 calc2 = new Calc2();
-
+        System.out.printf("Before swapping \tdataArray[0][0]= %d, \tdataArray[0][1]= %d %n", data1.getElement(0,0), data1.getElement(0,1));         // %n - new line   // %d - decimal integer
+        System.out.printf("Before swapping \tdataArray[100][0]= %d, \tdataArray[100][1]= %d %n", data1.getElement(100,0), data1.getElement(100,1));         // %n - new line   // %d - decimal integer
         Log4JStopWatch sw1 = new Log4JStopWatch("MyLogger1");
-
-        System.out.printf("Before swapping \tdataArray[0][0]= %d, \tdataArray[0][1]= %d %n", dataArray[0][0], dataArray[0][1]);         // %n - new line   // %d - decimal integer
-        dataArray1 = calc1.swapMetodOne(dataArray1);
-        System.out.printf("Before swapping \tdataArray1[0][0]= %d, \tdataArray1[0][1]= %d %n", dataArray1[0][0], dataArray1[0][1]);         // %n - new line   // %d - decimal integer
-
+        data1.swapMethodA();
+        data1.swapMethodA();
         sw1.stop();
-        Log4JStopWatch sw2 = new Log4JStopWatch("MyLogger1");
-
-        System.out.printf("\nBefore swapping \tdataArray[0][0]= %d, \tdataArray[0][1]= %d %n", dataArray[0][0], dataArray[0][1]);         // %n - new line   // %d - decimal integer
-        dataArray2 = calc2.swapMetodOne(dataArray2);
-        System.out.printf("Before swapping \tdataArray2[0][0]= %d, \tdataArray2[0][1]= %d %n", dataArray2[0][0], dataArray2[0][1]);         // %n - new line   // %d - decimal integer
+        System.out.printf("After swapping \tdataArray1[0][0]= %d, \tdataArray1[0][1]= %d %n", data1.getElement(0,0), data1.getElement(0,1));         // %n - new line   // %d - decimal integer
+        System.out.printf("After swapping \tdataArray[100][0]= %d, \tdataArray[100][1]= %d %n", data1.getElement(100,0), data1.getElement(100,1));         // %n - new line   // %d - decimal integer
 
 
+        System.out.printf("\nBefore swapping \tdataArray[0][0]= %d, \tdataArray[0][1]= %d %n", data2.getElement(0,0), data2.getElement(0,1));         // %n - new line   // %d - decimal integer
+        System.out.printf("Before swapping \tdataArray[100][0]= %d, \tdataArray[100][1]= %d %n", data2.getElement(100,0), data2.getElement(100,1));         // %n - new line   // %d - decimal integer
+        Log4JStopWatch sw2 = new Log4JStopWatch("MyLogger2");
+        data2.swapMethodB();
+        data2.swapMethodB();
         sw2.stop();
-//        sw.lap("second swap method");
+        System.out.printf("After swapping \tdataArray2[0][0]= %d, \tdataArray2[0][1]= %d %n", data2.getElement(0,0), data2.getElement(0,1));         // %n - new line   // %d - decimal integer
+        System.out.printf("After swapping \tdataArray2[100][0]= %d, \tdataArray2[100][1]= %d %n", data2.getElement(100,0), data2.getElement(100,1));         // %n - new line   // %d - decimal integer
+
+        //        sw.lap("second swap method");
 
 
     }
-
-    private static int[][] fillArray(int[][] array){
-
-        for (int i=0; i <array.length; i++){
-            array[i][0] = (int)(Math.random()*100);
-            array[i][1] = (int)(Math.random()*100)+100;
-        }
-        return array;
-    }
-
 }
