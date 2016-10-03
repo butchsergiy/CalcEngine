@@ -1,3 +1,5 @@
+package test1;
+
 /**
  * Created by BSV on 10.09.2016.
  */
@@ -38,5 +40,9 @@ class DataProcessor {
 
     public void printArrayPair(String s, int a){
         System.out.printf(s + "dataArray[%d][0]= %d, \tdataArray[%d][1]= %d %n", a, dataArray[a][0], a, dataArray[a][1]);
+    }
+
+    public int getElement(int a, int b){
+        return dataArray[a][b];
     }
 }
